@@ -86,9 +86,6 @@ body {
   overflow-x: hidden;
 }
 
-img {
-    border-radius: 2px;
-}
 
 /* ToC(Table of Content) */
 .md-toc {
@@ -122,7 +119,7 @@ img {
 #write {
   font-size: 14px;
   text-align: left;
-  max-width: 960px;
+  max-width: auto;
   letter-spacing: 0px;
 }
 
@@ -174,7 +171,7 @@ content: '';
 #write h4,
 #write h5,
 #write h6 {
-  margin: 0em 0em 0 0;
+  margin: .5em 0em 0 0;
 }
 #write h1::before{
   content: "❀"; 
@@ -350,14 +347,14 @@ blockquote .md-end-block.md-heading:before {
 
 #write blockquote {
   margin: 3px 3px 3px 3px;
-  padding: 7px 7px 7px 7px;
+  padding: 5px 5px 2px 10px;
   background: #404040;
-  border-left: 3px solid #FFD800;
+  border-left: 2.5px solid #FFD800;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
 #write blockquote p {
-  line-height: 15px;
+  /*line-height: 16px;*/
 }
 
 /*数学框*/
@@ -464,21 +461,62 @@ p.mathjax-block,
     box-shadow: none;
 }
 
+/*--- 图片 ---*/
+
+.md-image {
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+.md-image img {
+  border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+/* 当 “![shadow-随便写]()”写时，会有阴影 */
+
+.md-image img[alt|='shadow'] {
+    /* box-shadow: 0 4px 24px -6px #ddd; */
+    box-shadow: #84A1A8 0px 10px 15px;
+}
+
 .md-image>.md-meta {
-    padding-left: 0em;
-    padding-right: 0em;
+    border-radius: 3px;
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    padding: 2px 0 0 4px;
+    font-size: 0.9em;
+    color: inherit;
 }
 
-.md-image>img {
-    margin-top: 2px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.md-tag {
+    color: inherit;
 }
 
-.md-image>.md-meta:first-of-type:before {
-    padding-left: 4px;
+.md-toc {
+    margin-top: 20px;
+    padding-bottom: 20px;
 }
 
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#md-notification:before {
+    top: 10px;
+}
 
 
 /* 超链接 */
@@ -510,21 +548,10 @@ p.mathjax-block,
 #write span code,
 #write li code {
   word-wrap: break-word;
-  padding: 2px 2px 2px 2px;
+  padding: 3px 5px 3px 5px;
   border-radius: 5px;
-  margin: 0 0px 0 0;
+  margin: 0 0px 0 0px;
   word-break: break-all;
-}
-
-/* 文章插图 */
-#write img {
-  display: block;
-  margin: 0 0;
-  width: 85%;
-  max-width: 100%;
-  box-shadow:0px 4px 12px #84A1A8;
-  border: 1px;
-  border-radius: 5px;
 }
 
 /*表格*/
