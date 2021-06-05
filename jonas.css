@@ -12,32 +12,35 @@
   --md-char-color: #FF6E00;               /*change color of meta characetrs like `*` in markdown */
   --meta-content-color: #00FFA8;          /*change color of meta contents like image text or link address in markdown */
 
-  --primary-color: #FF6E00;               /* color of primary buttons */
+  --primary-color: #00FFC8;               /* color of primary buttons */
   --primary-btn-border-color: #94FF00;
   --primary-btn-text-color: #FF9600;
   --primary-btn-bg-color: #00FFA8;
 
-
   --window-border: 1px solid #BAFF00;        /*border for sidebar, etc*/
 
   --active-file-bg-color: #404040;           /*background color if list item in file tree or file list*/
-  --active-file-text-color: #FFE500;
-  --active-file-border-color: #94FF00;
+  --active-file-text-color: #00FFC8;
+  --active-file-border-color: #00FFC8;
 
   --side-bar-bg-color: #151515;         /*change background of sidebar*/  
+
   --item-hover-bg-color: #6B7E93;   /*background of control items when hover, like menu in sidebar*/
   --item-bg-color: #202020;   /*background of control items when hover, like menu in sidebar*/ 
   --item-hover-text-color: #4EFF00;
-  --meta-content-color: #FF6E00;
+
+  --meta-content-color: #FFE500;
   --monospace: 'Fira code', monospace;                   /*monospace font for codes, fences*/
+  --search-select-text-color: #FF0000;
+
   --mermaid-node-color: #FF6E00 !important;
   --mermaid-node-border: #FF6E00;
-  --mermaid-contrast-color: #afe61d;
+  --mermaid-contrast-color: #94FF00;
   --mermaid-theme: dark;
 }
 
 ::selection {
-	background: #C0C0C0;
+	background: rgba(53, 82, 116, 0.97);
 	color: #38FF00;
 }
 ::-moz-selection {
@@ -51,12 +54,29 @@
 
 /* scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 7px;
 }
 ::-webkit-scrollbar-thumb,              /*最右侧滑动条*/
 ::-webkit-scrollbar-thumb:active {
-    border-radius: 8px;
+    border-radius: 5px;
     background-color: #F6F905;
+}
+
+/* 侧边栏 */
+.file-list-item.active {
+    background: var(--active-file-bg-color);
+    color: var(--active-file-text-color);
+    border-left: 3px solid var(--active-file-border-color);
+}
+
+.file-tree-node.active>.file-node-background {
+    background-color: var(--active-file-bg-color);
+    border-left: 3px solid  var(--active-file-border-color);
+    border-color: var(--active-file-border-color);
+}
+.pin-outline #outline-content .outline-active strong, .pin-outline .outline-active {
+    font-weight: 500;
+    color: #00FFC8;
 }
 
 html {
@@ -78,7 +98,7 @@ html {
 body {
   font-family:  Fira code,"JetBrains Mono","Nunito", sans-serif !important;
   -webkit-font-feature-settings:"liga" on, "calt" on;
-  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: antialiased;
   text-rendering:optimizeLegibility;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -119,7 +139,7 @@ body {
 #write {
   font-size: 14px;
   text-align: left;
-  max-width: auto;
+  max-width: 1000px;
   letter-spacing: 0px;
 }
 
@@ -140,11 +160,10 @@ content: '';
 
 /* highlight. */
 #write mark {
-  font-weight: bold;
-  border-radius: 0.2rem;
+  font-weight: 900;
+  border-radius: 6px;
   padding: 3px;
-  margin: 1px 1px 1px 1px;
-  color: #0049FF;
+  color: #000E42;
   background: #FFD400;
 }
 
@@ -154,8 +173,8 @@ content: '';
   padding-bottom: 1px;
   /* line-height: 18px;    段内的行高*/
   color: white;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 
 /*  todo item 对齐 */
@@ -266,7 +285,7 @@ content: '';
 #write ul {
   padding-left: 2.8em;     /*列表标号的左边距*/
   margin-block-start: 0em;
-  margin-block-end: 1em;     /*列表框的上下margin*/
+  margin-block-end: 0.3em;     /*列表框的上下margin*/
   
 }
 
@@ -289,7 +308,7 @@ content: '';
 
 #write ol>li>*:not(ol):not(ul),
 #write ul>li>*:not(ol):not(ul) {
-    padding-left: -1em;    /*列表标号和文字之间的距离*/
+    padding-left: 2px;    /*列表标号和文字之间的距离*/
 }
 
 #write ul {
@@ -303,7 +322,7 @@ ol:first-child {
 
 ul:last-child,
 ol:last-child {
-    margin-bottom: 1em;
+    margin-bottom: .5em;
 }
 .typora-export li {
     font-size: 15px !important;
@@ -314,11 +333,6 @@ ol:last-child {
 #write li section {
   padding-left: 0em;
   padding-bottom: 0;
-}
-.md-task-list-item>input {
-    margin-left: 0em;
-    margin-top: 0em;
-    -webkit-appearance: none;
 }
 
 .md-task-list-item>input:before {
@@ -350,7 +364,7 @@ blockquote .md-end-block.md-heading:before {
   padding: 5px 5px 2px 10px;
   background: #404040;
   border-left: 2.5px solid #FFD800;
-  overflow: auto;
+  overflow: hidden;
   -webkit-overflow-scrolling: touch;
 }
 #write blockquote p {
@@ -548,7 +562,7 @@ p.mathjax-block,
 #write span code,
 #write li code {
   word-wrap: break-word;
-  padding: 3px 5px 3px 5px;
+  padding: 2px 4px 2px 4px;
   border-radius: 5px;
   margin: 0 0px 0 0px;
   word-break: break-all;
@@ -597,7 +611,7 @@ p.mathjax-block,
 
 /* 下角标 */
 #write .md-def-name {
-  padding-right: 1em;
+  padding-right: 5px;
 }
 #write .md-def-name:before {
   color: #E49123;
@@ -611,8 +625,11 @@ p.mathjax-block,
 code {
   font-size: 14px;
   font-family: "Fira Code", "Microsoft YaHei", sans-serif;
-	padding: 0em;
+	padding: 0 0 0 20px;
 	border: 1px solid #FFE356;
+}
+.CodeMirror-lines {
+    padding: 0 0 0 3px;
 }
 .md-fences {
   font-size: 14px;
@@ -626,10 +643,6 @@ code {
   padding: 5px 0 5px 0;  /*代码段内容框的padding*/
   box-shadow: 0px 0px 0px grey;
 }
-.md-task-list-item>input {
-    background: #1a283d;
-    margin-left: -1.9em;
-}
 
 
 /* Using checkboxes in sublists should not get list circles inside inputs */
@@ -639,7 +652,6 @@ code {
 .task-list {
     padding-left: 5px;
     padding-right: 5px;
-
 }
 
 .task-list-item {
@@ -647,7 +659,10 @@ code {
 }
 
 .task-list-item input {
-    top: 3px;
+    top: 0px;
+}
+.md-task-list-item>input {
+    margin-left: -2.2em;
 }
 
 .task-list-item input:before {
@@ -657,10 +672,9 @@ code {
     height: 1.3rem;
     vertical-align: middle;
     text-align: center;
-    border: 1.2px solid #96FF00;
+    border: 1.5px solid #96FF00;
     background-color: #404040 !important;
     margin-left: 0;
-    margin-right: 1rem;
 }
 
 .task-list-item input:checked:before,
@@ -924,4 +938,128 @@ div.cm-s-inner[lang="ruby"] .cm-atom {
 
 .typora-export .footnote-line a {
     color: #58a6ff;
+}
+
+
+/*重要部分: 标题加数字标号*/
+/*注意: 
+  1级标题省略数字标号, 而是之前设置的符号;
+  2到4级标题会展示数字标号;
+  5和6级标题,不展示数字标号,而是之前的符号
+
+  */
+/* 正文标题区: #write */
+/* [TOC]目录树区: .md-toc-content */
+/* 侧边栏的目录大纲区: .sidebar-content */
+
+/** initialize css counter */
+#write, .sidebar-content,.md-toc-content{
+    counter-reset: h2
+}
+
+#write h1, .outline-h1, .md-toc-item.md-toc-h1 {
+    counter-reset: h2
+}
+
+#write h2, .outline-h2, .md-toc-item.md-toc-h2 {
+    counter-reset: h3
+}
+
+#write h3, .outline-h3, .md-toc-item.md-toc-h3 {
+    counter-reset: h4
+}
+
+#write h4, .outline-h4, .md-toc-item.md-toc-h4 {
+    counter-reset: h5
+}
+
+#write h5, .outline-h5, .md-toc-item.md-toc-h5 {
+    counter-reset: h6
+}
+
+/** put counter result into headings */
+/* 一级标题不展示数字标号 */
+#write h1:before,
+.outline-h1>.outline-item>.outline-label:before,
+.md-toc-item.md-toc-h1>.md-toc-inner:before {
+    counter-increment: h1;
+    content: "❀ ";
+}
+
+/* 二级标题 */
+#write h2:before,
+.outline-h2>.outline-item>.outline-label:before,
+.md-toc-item.md-toc-h2>.md-toc-inner:before {
+    counter-increment: h2;
+    content: counter(h2) ". ";
+}
+
+/* 三级标题 */
+#write h3:before,
+h3.md-focus.md-heading:before, /** override the default style for focused headings */
+.outline-h3>.outline-item>.outline-label:before,
+.md-toc-item.md-toc-h3>.md-toc-inner:before {
+    text-decoration: none;
+    counter-increment: h3;
+    /* content: counter(h1) "." counter(h2) "." counter(h3) ". " */
+    content: counter(h2) "." counter(h3) " "
+}
+
+/* 四级标题 */
+#write h4:before,
+h4.md-focus.md-heading:before,
+.outline-h4>.outline-item>.outline-label:before,
+.md-toc-item.md-toc-h4>.md-toc-inner:before {
+    text-decoration: none;
+    counter-increment: h4;
+    /*content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) ". " */
+    content: counter(h2) "." counter(h3) "." counter(h4) " "
+}
+
+/* 五级标题 */
+#write h5:before,
+h5.md-focus.md-heading:before,
+.outline-h5>.outline-item>.outline-label:before,
+.md-toc-item.md-toc-h5>.md-toc-inner:before {
+    text-decoration: none;
+    counter-increment: h5;
+    /* content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". " */
+    /* content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". " */
+    content: "❃ "; 
+}
+
+/* 六级标题 */
+#write h6:before,
+h6.md-focus.md-heading:before,
+.outline-h6>.outline-item>.outline-label:before,
+.md-toc-item.md-toc-h6>.md-toc-inner:before {
+    text-decoration: none;
+    counter-increment: h6;
+    /* content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". " */
+    /* content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". " */
+    content: "۞ ";
+}
+
+/** override the default style for focused headings */
+#write>h3.md-focus:before,
+#write>h4.md-focus:before,
+#write>h5.md-focus:before,
+#write>h6.md-focus:before,
+h3.md-focus:before,
+h4.md-focus:before,
+h5.md-focus:before,
+h6.md-focus:before {
+    color: inherit;
+    border: inherit;
+    border-radius: inherit;
+    position: inherit;
+    left:initial;
+    float: none;
+    top:initial;
+    font-size: inherit;
+    padding-left: inherit;
+    padding-right: inherit;
+    vertical-align: inherit;
+    font-weight: inherit;
+    line-height: inherit;
 }
