@@ -1,3 +1,13 @@
+/*
+Theme Name: Jonas
+Theme URL: https://github.com/Wolfxin/Typora-theme-jonas
+Authors: Jonas Wolfxin
+Author URL: https://github.com/Wolfxin/
+Description: A Typora theme that uses GitHub Dark Color Scheme.
+Version: 2.0
+Tags: dark, github, typora
+*/
+
 /* Fira Code */
 @font-face {
   font-family: Fira Code;
@@ -946,7 +956,6 @@ div.cm-s-inner[lang="ruby"] .cm-atom {
   1级标题省略数字标号, 而是之前设置的符号;
   2到4级标题会展示数字标号;
   5和6级标题,不展示数字标号,而是之前的符号
-
   */
 /* 正文标题区: #write */
 /* [TOC]目录树区: .md-toc-content */
