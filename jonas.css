@@ -16,11 +16,11 @@ Tags: dark, github, typora
 
 /* 全局属性 */
 :root{
-  --select-text-bg-color: #808080;
+  --select-text-bg-color: #D2327F;
   --bg-color:  #202020;                   /*编辑面板背景色 也是菜单面板背景色 */ 
   --text-color: #FFFF00;                  /*菜单面板字体颜色*/
   --md-char-color: #FF6E00;               /*change color of meta characetrs like `*` in markdown */
-  --meta-content-color: #00FFA8;          /*change color of meta contents like image text or link address in markdown */
+  --meta-content-color: #B3FF00;          /*change color of meta contents like image text or link address in markdown */
 
   --primary-color: #00FFC8;               /* color of primary buttons */
   --primary-btn-border-color: #94FF00;
@@ -50,16 +50,16 @@ Tags: dark, github, typora
 }
 
 ::selection {
-	background: rgba(53, 82, 116, 0.97);
-	color: #38FF00;
+	background: rgba(3, 152, 116, 0.9);
+	color: #FFEB00;
 }
 ::-moz-selection {
 	background: #C0C0C0;
-	color: #FF6E00;
+	color: #82FF00;
 }
 ::-webkit-selection {
 	background:#C0C0C0;
-	color: #FF6E00;
+	color: #82FF00;
 }
 
 /* scrollbar */
@@ -166,6 +166,12 @@ font-weight: 500;
 
 #write strong::after {
 content: '';
+}
+/*斜体的呈现样式*/
+#write em {
+color: #FF5C47;
+font-size: 15px;
+font-weight: 500; 
 }
 
 /* highlight. */
@@ -366,14 +372,14 @@ blockquote .md-end-block.md-heading {
 }
 
 blockquote .md-end-block.md-heading:before {
-    content: '' !important;
+    content: '☁' !important;
 }
 
 #write blockquote {
   margin: 3px 3px 3px 3px;
   padding: 5px 5px 2px 10px;
   background: #404040;
-  border-left: 2.5px solid #FFD800;
+  border-left: 3px solid #FFD800;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
 }
@@ -543,12 +549,12 @@ p.mathjax-block,
 }
 
 
-/* 超链接 */
+/* 超链接,目录等的颜色 */
 #write a {
   text-decoration: none;
-  font-weight: bold;
-  color: #E49123;
-  border-bottom: 1px solid #E49123;
+  font-weight: 400;
+  color: #FFDC00;
+  border-bottom: 1px solid #A5FF7F;
 }
 
 /* 分割线 */
@@ -624,10 +630,10 @@ p.mathjax-block,
   padding-right: 5px;
 }
 #write .md-def-name:before {
-  color: #E49123;
+  color: #00FFC8;
 }
 #write .md-def-name:after {
-  color: #E49123;
+  color: #00FFC8;
 }
 
 
